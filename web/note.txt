@@ -1,0 +1,14 @@
+Shared libraries / runtimes pluggability
+
+1.Servlet容器启动会扫描当前应用里面的每一个jar包的实现
+    ServletContainerInitializer
+2.提供了ServletContainerInitializer实现类
+    必须绑定在 META-INF/services
+    文件的内容就是ServletContainerInitializer实现类的全类名
+
+总结：容器在启动应用的时候，会扫描当前应用每一个jar包里面
+META-INF/services/javax.servlet.ServletContainerInitializer
+指定的实现类，启动并运行这个实现类方法,传入感兴趣的类型
+
+ServletContainerInitializer
+@HandlesTypes
